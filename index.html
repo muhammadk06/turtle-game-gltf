@@ -5,10 +5,12 @@
         <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
         <script
       src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v4.0.1/dist/aframe-physics-system.min.js"></script>
+      <script src="movement.js"></script>
+      <script src = "game.js"></script>
     </head>
 </html>
 <body>
-    <a-scene>
+    <a-scene physics = "gravity:0">
         <a-assets>
             <a-asset-item id = "rs" src = "researcher/scene.gltf"></a-asset-item>
             <a-asset-item id = "isl" src = "islands/scene.gltf"></a-asset-item>
@@ -17,7 +19,7 @@
         </a-assets>
 
         <a-sky src = "#back" rotation = "-180 10 0"></a-sky>
-        <a-entity id = "look" kinematic-body look-controls wasd-controls = "accelaration:200" camera position ="-10 -18 -20" rotation = "-6 -0.5 0">
+        <a-entity id = "look" kinematic-body look-controls wasd-controls = "acceleration:200" camera position ="-10 -18 -20" rotation = "-6 -0.5 0">
             <a-entity position = "-5 -5 -12">
                 <a-entity position = "-0.6 0.13 0" text = "align:left; width:12; color:white; value:TURTLES\nTo Be RESCUED;">
                 </a-entity>
@@ -25,6 +27,15 @@
                 <a-entity  position = "15 0.3 0" text = "align:center; width:26; color:white;"></a-entity>
             </a-entity>
 
+
         </a-entity>
+        <a-entity gltf-model = "#isl" position="-10 -25 -12" scale="3 3 3"></a-entity>
+        <a-entity gltf-model = "#tur" position = "-44 -23 -16" scale = "3 3 3" static-body = "shape: sphere; sphereRadius: 5;" game></a-entity>
+        <a-entity gltf-model = "#tur" position = "-10 -22 -36" scale = "3 3 3" static-body = "shape: sphere; sphereRadius: 5;" game></a-entity>
+        <a-entity gltf-model = "#tur" position = "24 -24 -66" scale = "3 3 3" static-body = "shape: sphere; sphereRadius: 5;" game></a-entity>
+        <a-entity gltf-model = "#tur" position = "20 -24 -36" scale = "3 3 3" static-body = "shape: sphere; sphereRadius: 5;" game></a-entity>
+        <a-entity gltf-model = "#tur" position = "9 -24 -2" scale = "3 3 3" static-body = "shape: sphere; sphereRadius: 5;" game></a-entity>
+        <a-entity gltf-model = "#rs" position = "24 -24 -66" scale = "3 3 3" static-body = "shape: sphere; sphereRadius: 6;" rotation = "0 180 0" movement game></a-entity>
+        
     </a-scene>
 </body>
